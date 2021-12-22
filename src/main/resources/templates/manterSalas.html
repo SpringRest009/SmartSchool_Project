@@ -28,6 +28,9 @@
 
 
 
+
+
+
     </style>
 </head>
 <body>
@@ -40,60 +43,31 @@
                 <a class="nav-link active" aria-current="page" href="/manteralunos">Atualizar Cadastro Aluno</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="/manterprofessores"
-                   style="background-color:#E6E6FA; border-radius: 25px; margin:8px;">Atualizar Cadastro Professores</a>
+                <a class="nav-link" href="/manterprofessores">Atualizar Cadastro Professores</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="/mantersala">Atualizar Cadastro Salas de Aula</a>
+                <a class="nav-link" href="/mantersala"
+                   style="background-color:#E6E6FA; border-radius: 25px; margin:8px;">Atualizar
+                    Cadastro Salas de Aula</a>
             </li>
         </ul>
     </div>
     <div class="input-group mb-3">
-        <input type="text" class="form-control" placeholder="Nome ou CPF">
+        <input type="text" class="form-control" placeholder="Código da sala/Turma...">
         <button class="btn btn-outline-secondary" type="button" id="button-addon2">Pesquisa</button>
     </div>
     <div class="col-sm-8 d-flex justify-content-center align-items-center container">
         <form action="">
-            <h2 style="color: gray" align="center">Formulário para atualizar dados do Professor</h2>
+            <h2 style="color: gray" align="center">Formulário para atualizar dados da Sala de Aula</h2>
             <div class="border border-2 border-secondary rounded" style="padding: 2em">
-                <div class="input-group">
-                    <span class="input-group-text">Nome</span>
-                    <input type="text" aria-label="Nome" class="form-control">
-                </div>
                 <div class="row">
                     <div class="input-group col">
-                        <span class="input-group-text">CPF</span>
-                        <input type="number" aria-label="CPF" class="form-control">
-                    </div>
-                    <div class="input-group col">
-                        <span class="input-group-text">Data de Nascimento</span>
-                        <input type="date" aria-label="Data de Nascimento" class="form-control">
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="input-group col">
-                        <span class="input-group-text">E-mail</span>
-                        <input type="email" aria-label="E-mail" class="form-control">
-                    </div>
-                    <div class="input-group col">
-                        <span class="input-group-text">Sala de Aula</span>
-                        <input type="text" aria-label="sala" class="form-control">
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="input-group col">
-                        <span class="input-group-text">Alunos</span>
-                        <select id="inputState" class="form-select">
-                            <option selected>Selecione</option>
-                            <option>Arthur José dos Santos</option>
-                            <option>Solange Brasileiro Nascimento</option>
-                            <option>Ezequiel da Silva Sauro</option>
-                            <option>Eduardo Pereira Pinto</option>
-                        </select>
+                        <span class="input-group-text">Código da Turma</span>
+                        <input type="text" aria-label="Código" class="form-control">
                     </div>
                     <div class="input-group col">
                         <span class="input-group-text">Professores</span>
-                        <select id="inputState1" class="form-select">
+                        <select id="inputState" class="form-select">
                             <option selected>Selecione</option>
                             <option>Alexandre</option>
                             <option>Bruno</option>
@@ -102,13 +76,23 @@
                         </select>
                     </div>
                 </div>
-                <div class="input-group">
-                    <span class="input-group-text">Telefone</span>
-                    <input type="tel" aria-label="Telefone" class="form-control">
+                <div class="row">
+                    <div class="input-group col">
+                        <span class="input-group-text">Local da Sala</span>
+                        <input type="text" aria-label="sala" class="form-control">
+                    </div>
+                    <div class="input-group col">
+                        <span class="input-group-text">Qtd. Alunos</span>
+                        <input type="number" aria-label="Qtd" class="form-control">
+                    </div>
                 </div>
                 <div class="input-group">
-                    <span class="input-group-text">Endereço</span>
-                    <input type="text" aria-label="Endereço" class="form-control">
+                    <span class="input-group-text">Nome do Professor</span>
+                    <input type="text" aria-label="Nome" class="form-control">
+                </div>
+                <div class="input-group">
+                    <span class="input-group-text">Alunos</span>
+                    <input type="text" aria-label="Alunos" class="form-control">
                 </div>
             </div>
                 <div class="d-grid gap-2 col-sm-3 mx-auto pb-5" style="padding: 2em">
