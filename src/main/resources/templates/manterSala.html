@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Smart School</title>
+        <link
+            href="../static/css/style.css"
+            th:href="@{/css/style.css}"
+            rel="stylesheet"
+        />
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+            crossorigin="anonymous"
+        />
+        <link
+            rel="stylesheet"
+            href="https://use.fontawesome.com/releases/v5.0.8/css/all.css"
+        />
+        <style>
+            .input-group {
+                padding: 10px;
+            }
+        </style>
+    </head>
+    <body>
+        <div th:replace="fragmentos/navSecretaria :: nav"></div>
+
+        <main class="container">
+            <ul class="nav justify-content-center p-3">
+                <li class="nav-item">
+                    <a
+                        class="nav-link active"
+                        aria-current="page"
+                        href="/manteralunos"
+                        >Atualizar Cadastro Aluno</a
+                    >
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/manterprofessores"
+                        >Atualizar Cadastro Professores</a
+                    >
+                </li>
+                <li class="nav-item">
+                    <a
+                        class="nav-link"
+                        href="/mantersala"
+                        style="
+                            background-color: #e6e6fa;
+                            border-radius: 25px;
+                            margin: 8px;
+                        "
+                        >Atualizar Cadastro Salas de Aula</a
+                    >
+                </li>
+            </ul>
+            <form
+                class="vh-100"
+                action="/mantersala"
+                method="POST"
+                th:object="${sala}"
+            >
+                <div class="input-group">
+                    <span class="input-group-text">Turma</span>
+                    <input
+                        type="text"
+                        aria-label="Código"
+                        class="form-control"
+                        th:field="*{turma}"
+                    />
+                </div>
+                <div class="input-group">
+                    <span class="input-group-text">Código da Sala</span>
+                    <input
+                        type="number"
+                        aria-label="Código"
+                        class="form-control"
+                        th:field="*{cod_sala}"
+                    />
+                </div>
+                <div class="input-group">
+                    <span class="input-group-text">Qtd. Alunos</span>
+                    <input
+                        type="number"
+                        aria-label="Qtd"
+                        class="form-control"
+                        th:field="*{qtd_alunos}"
+                    />
+                </div>
+                <div class="input-group">
+                    <span class="input-group-text">Local da Sala</span>
+                    <input
+                        type="text"
+                        aria-label="sala"
+                        class="form-control"
+                        th:field="*{local_sala}"
+                    />
+                </div>
+                <div class="d-grid gap-2 col-6 mx-auto p-3">
+                    <button class="btn btn-primary btn-sm" type="button">
+                        Salvar
+                    </button>
+                </div>
+            </form>
+        </main>
+
+        <div th:replace="fragmentos/footer :: footer"></div>
+
+        <script
+            src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
+            crossorigin="anonymous"
+        ></script>
+    </body>
+</html>

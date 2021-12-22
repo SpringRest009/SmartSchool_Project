@@ -1,0 +1,28 @@
+* {
+    --cor-azul: #c7ced6a3;
+    --cor-cinza: #212529;
+    --cor-azul-cinza: #778899;
+    --cor-branco: #fff;
+}
+main {
+    background-color: var(--cor-azul);
+    height: 100%;
+}
+.login {
+    border: 2px solid var(--cor-azul-cinza);
+    background-color: var(--cor-branco);
+}
+.borda {
+    border: 2px solid var(--cor-azul-cinza);
+}
+
+@media (min-width: 1281px) {
+    .forCenter {
+        width: auto !important;
+    }
+}
+@media (min-width: 990px) and (max-width: 1280px) {
+    .forCenter {
+        width: auto !important;
+    }
+}
