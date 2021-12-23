@@ -2,46 +2,35 @@
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid forCenter">
             <a class="navbar-brand" href="/">
-                <img
-                    class="img-fluid"
-                    src="../static/img/logo.png"
-                    th:attr="src=@{/img/logo.png},title=#{logo},alt=#{logo}"
-                />
+                <img class="img-fluid" src="../static/img/logo.png"
+                    th:attr="src=@{/img/logo.png},title=#{logo},alt=#{logo}" />
             </a>
-            <button
-                class="navbar-toggler"
-                type="button"
-                data-bs-toggle="collapse"
-                data-bs-target="#navbarSupportedContent"
-                aria-controls="navbarSupportedContent"
-                aria-expanded="false"
-                aria-label="Toggle navigation"
-            >
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item mx-4">
-                        <a class="nav-link active" aria-current="page" href="/"
-                            >Home</a
-                        >
+                        <a class="nav-link active" aria-current="page" href="/">Home</a>
                     </li>
                     <li class="nav-item mx-4">
                         <div class="dropdown">
-                            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">
+                            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton2"
+                                data-bs-toggle="dropdown" aria-expanded="false">
                                 Login
                             </button>
                             <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuButton2">
-                                <button class="dropdown-item" type="button" onclick="window.location.assign('/auth')">
-                                    Eu sou Aluno
+                                <button class="dropdown-item" type="button" onclick="window.location.assign('/login')">
+                                    Acesso Aluno
                                 </button>
-                                <button class="dropdown-item" type="button" onclick="window.location.assign('/salas')">
-                                    Eu sou Professor
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <button class="dropdown-item" type="button" onclick="window.location.assign('/login')">
+                                    Acesso Secretaria
                                 </button>
-                                <li><hr class="dropdown-divider"></li>
-                                    <button class="dropdown-item" type="button" onclick="window.location.assign('/cadastroaluno')">
-                                        Secretaria
-                                    </button>
                             </ul>
                         </div>
                     </li>
@@ -50,4 +39,3 @@
         </div>
     </nav>
 </header>
-

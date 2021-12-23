@@ -3,14 +3,14 @@ CREATE TABLE IF NOT EXISTS `usuario`
   `login` varchar
 (11) NOT NULL,
   `senha` varchar
-(10) NOT NULL,
-  `rg` int
+(64) NOT NULL,
+  `rg` varchar
 (11) NOT NULL,
   `telefone` varchar
 (11) DEFAULT NULL,
   `data_nasc` date NOT NULL,
   `email` varchar
-(50) NOT NULL,
+(50) NOT NULL UNIQUE,
   `nome` varchar
 (100) NOT NULL,
   `cpf` VARCHAR
@@ -24,7 +24,7 @@ CREATE TABLE IF NOT EXISTS `usuario`
 
 CREATE TABLE IF NOT EXISTS `administrador`
 (
-  `cod_adm` int
+  `cod_adm` varchar
 (11) DEFAULT NULL,
   `usuario_login` varchar
 (10) NOT NULL,
@@ -63,7 +63,7 @@ DEFAULT CHARSET=utf8mb4;
 
 CREATE TABLE IF NOT EXISTS `professor`
 (
-  `cod_professor` int
+  `cod_professor` varchar
 (11) DEFAULT NULL,
   `usuario_login` varchar
 (10) NOT NULL,
@@ -79,7 +79,7 @@ DEFAULT CHARSET=utf8mb4;
 
 CREATE TABLE IF NOT EXISTS `sala`
 (
-  `cod_sala` int
+  `cod_sala` varchar
 (11) NOT NULL,
   `local_sala` varchar
 (200) NOT NULL,

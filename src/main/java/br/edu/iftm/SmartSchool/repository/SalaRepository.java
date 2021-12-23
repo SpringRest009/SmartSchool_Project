@@ -22,7 +22,7 @@ public class SalaRepository {
         String consulta = "SELECT * FROM sala";
         return jdbc.query(consulta,
                         (res, linha) -> new Sala(
-                            res.getInt("cod_sala"),
+                            res.getString("cod_sala"),
                             res.getString("turma"),
                             res.getString("local_sala"),
                             res.getInt("qtd_alunos")
@@ -34,31 +34,26 @@ public class SalaRepository {
         return jdbc.update(consulta, sala.getCod_sala(), sala.getTurma(), sala.getLocal_sala(), sala.getQtd_alunos());
     }
 
-    public Integer excluirSala(Integer id) {
+    public Integer excluirSala(String cod_sala) {
         String consulta = "delete from sala where cod_sala = ?";
-        return jdbc.update(consulta, id);
+        return jdbc.update(consulta, cod_sala);
     }
 
-    public Integer atualizarSala(Sala sala) {
+    public Integer atualizarSala(String cod_sala, Sala sala) {
         String consulta = "UPDATE SALA SET cod_sala = ?, turma = ?, local_sala = ?, qtd_alunos = ?";
         return jdbc.update(consulta, sala.getCod_sala(), sala.getTurma(), sala.getLocal_sala(), sala.getQtd_alunos());
     }
 
-    public Sala buscaPorCodSala(Integer cod_sala) {
-        Sala sala = null;
-            try {
-                    sala = jdbc.queryForObject(
-                                    "select * from sala, cod_sala where cod_sala = ?",
-                                    (res, rowNum) -> {
-                                            return new Sala(
-                                                res.getInt("cod_sala"),
-                                                res.getString("turma"),
-                                                res.getString("local_sala"),
-                                                res.getInt("qtd_alunos"));
-                                    }, new Object[] { cod_sala });
-            } catch (Exception e) {
-                    System.out.println(e.getLocalizedMessage());
-            }
-            return sala;
+    public Sala buscaPorCodSala(String cod_sala) {
+        return jdbc.queryForObject(
+                "SELECT * FROM SALA WHERE cod_sala = ?",
+                (res, rowNum) -> {
+                    return new Sala(
+                        res.getString("cod_sala"),
+                        res.getString("turma"),
+                        res.getString("local_sala"),
+                        res.getInt("qtd_alunos")
+                            );},
+                            cod_sala);
     }
 }

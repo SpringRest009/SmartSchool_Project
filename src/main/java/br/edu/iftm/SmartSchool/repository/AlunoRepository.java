@@ -1,8 +1,10 @@
 package br.edu.iftm.SmartSchool.repository;
 
 import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Repository;
 
 import br.edu.iftm.SmartSchool.model.Aluno;
@@ -23,7 +25,7 @@ public class AlunoRepository {
                 return jdbc.query(consulta,
                                 (res, linha) -> new Aluno(
                                                 new Usuario(res.getString("login"), res.getString("senha"),
-                                                                res.getInt("rg"),
+                                                                res.getString("rg"),
                                                                 res.getString("telefone"), res.getDate("data_nasc"),
                                                                 res.getString("email"),
                                                                 res.getString("nome"), res.getString("cpf"),
@@ -37,6 +39,13 @@ public class AlunoRepository {
                 Usuario us = aluno.getUsuario();
                 String sqlUsuario = "insert into usuario(login, senha, rg, telefone, data_nasc, email, nome, cpf, endereco) values(?,?,?,?,?,?,?,?,?)";
                 String sqlAluno = "insert into aluno(matricula,nome_mae,nome_pai,data_matricula,tel_responsavel,usuario_login) values(?,?,?,?,?,?)";
+
+                BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+
+                String encodedPassword = passwordEncoder.encode(us.getSenha());
+
+                us.setSenha(encodedPassword);
+                
                 jdbc.update(sqlUsuario, us.getLogin(), us.getSenha(), us.getRg(), us.getTelefone(), us.getDataNasc(),
                                 us.getEmail(), us.getNome(), us.getCpf(), us.getEndereco());
                 return jdbc.update(sqlAluno, aluno.getMatricula(), aluno.getNomeMae(), aluno.getNomePai(),
@@ -65,7 +74,7 @@ public class AlunoRepository {
                                 "SELECT * FROM aluno, usuario where usuario.login = aluno.usuario_login and usuario.login = ? ;",
                                 (res, linha) -> new Aluno(
                                                 new Usuario(res.getString("login"), res.getString("senha"),
-                                                                res.getInt("rg"),
+                                                                res.getString("rg"),
                                                                 res.getString("telefone"), res.getDate("data_nasc"),
                                                                 res.getString("email"),
                                                                 res.getString("nome"), res.getString("cpf"),
@@ -85,7 +94,7 @@ public class AlunoRepository {
                                                 return new Aluno(
                                                                 new Usuario(res.getString("login"),
                                                                                 res.getString("senha"),
-                                                                                res.getInt("rg"),
+                                                                                res.getString("rg"),
                                                                                 res.getString("telefone"),
                                                                                 res.getDate("data_nasc"),
                                                                                 res.getString("email"),

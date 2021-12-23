@@ -1,13 +1,16 @@
 package br.edu.iftm.SmartSchool.model;
 
+import javax.validation.Valid;
+
 public class Professor {
-    private Integer cod_professor;
+    @Valid
+    private String cod_professor;
     private Usuario usuario;
 
     public Professor() {
     }
 
-    public Professor(Usuario usuario, Integer cod_professor) {
+    public Professor(Usuario usuario, String cod_professor) {
         this.usuario = usuario;
         this.cod_professor = cod_professor;
     }
@@ -20,11 +23,11 @@ public class Professor {
         this.usuario = usuario;
     }
 
-    public Integer getCod_professor() {
+    public String getCod_professor() {
         return this.cod_professor;
     }
 
-    public void setCod_professor(Integer cod_professor) {
+    public void setCod_professor(String cod_professor) {
         this.cod_professor = cod_professor;
     }
 }

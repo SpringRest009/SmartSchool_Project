@@ -27,7 +27,7 @@ public class AdminAtualizaAlunoController {
     @GetMapping(value = "cadastroaluno")
     String cadastroAluno(Model model) {
         model.addAttribute("aluno", new Aluno());
-        return "cadastroAluno";
+        return "cadastroaluno";
     }
 
     @PostMapping(value = "cadastroaluno")
@@ -56,7 +56,7 @@ public class AdminAtualizaAlunoController {
         Aluno aluno = new Aluno();
         if (identidadeAluno == null || identidadeAluno.isEmpty()) {
             model.addAttribute("aluno", aluno);
-            return "manterAlunos";
+            return "manteralunos";
         }
         identidadeAluno = identidadeAluno.replace(".", "").replace("-", "");
         // Verifica se e CPF ou NOME//
@@ -64,7 +64,7 @@ public class AdminAtualizaAlunoController {
             // Validação deu CPF na busca//
             if (identidadeAluno.length() < 11 || identidadeAluno.length() > 11) {
                 model.addAttribute("aluno", aluno);
-                return "manterAlunos";
+                return "manteralunos";
             }
             Aluno a = repo.buscaPorCpf(identidadeAluno);
             if (a != null) {
@@ -78,7 +78,7 @@ public class AdminAtualizaAlunoController {
             }
         }
         model.addAttribute("aluno", aluno);
-        return "manterAlunos";
+        return "manteralunos";
     }
 
     @RequestMapping(value = "/manteralunos", method = RequestMethod.POST)
@@ -89,7 +89,7 @@ public class AdminAtualizaAlunoController {
             model.addAttribute("sucessmensage", "Aluno atualizado com sucesso!");
         }
         model.addAttribute("alunoModel", new Aluno());
-        return "manterAlunos";
+        return "manteralunos";
     }
 
     @RequestMapping(value = "/manteralunos", method = RequestMethod.DELETE)
