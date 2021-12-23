@@ -44,24 +44,6 @@ public class SalaRepository {
         return jdbc.update(consulta, sala.getCod_sala(), sala.getTurma(), sala.getLocal_sala(), sala.getQtd_alunos());
     }
 
-    // public Sala buscaPorCodSala(String cod_sala) {
-    //     Sala sala = null;
-    //         try {
-    //                 sala = jdbc.queryForObject(
-    //                                 "select * from sala, cod_sala where cod_sala = ?",
-    //                                 (res, rowNum) -> {
-    //                                         return new Sala(
-    //                                             res.getString("cod_sala"),
-    //                                             res.getString("turma"),
-    //                                             res.getString("local_sala"),
-    //                                             res.getInt("qtd_alunos"));
-    //                                 }, new Object[] { cod_sala });
-    //         } catch (Exception e) {
-    //                 System.out.println(e.getLocalizedMessage());
-    //         }
-    //         return sala;
-    // }
-
     public Sala buscaPorCodSala(String cod_sala) {
         return jdbc.queryForObject(
                 "SELECT * FROM SALA WHERE cod_sala = ?",
@@ -73,18 +55,5 @@ public class SalaRepository {
                         res.getInt("qtd_alunos")
                             );},
                             cod_sala);
-    }
-
-    public Sala buscaPorTurma(String turma) {
-        return jdbc.queryForObject(
-                "SELECT * FROM SALA WHERE turma = ?",
-                (res, rowNum) -> {
-                    return new Sala(
-                        res.getString("cod_sala"),
-                        res.getString("turma"),
-                        res.getString("local_sala"),
-                        res.getInt("qtd_alunos")
-                            );},
-                            turma);
     }
 }

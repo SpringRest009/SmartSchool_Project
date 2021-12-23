@@ -70,10 +70,6 @@ public class AdminAtualizaSalaController {
                 Sala saC = repoS.buscaPorCodSala(identidadeSala);
                 sala = saC;
             }
-            else{
-                Sala saT = repoS.buscaPorTurma(identidadeSala);
-                sala = saT;
-            }
         }
         model.addAttribute("sala", sala);
         return "mantersala";
