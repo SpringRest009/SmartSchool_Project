@@ -40,7 +40,7 @@ public class SalaRepository {
     }
 
     public Integer atualizarSala(String cod_sala, Sala sala) {
-        String consulta = "UPDATE SALA SET cod_sala = ?, turma = ?, local_sala = ?, qtd_alunos = ?";
+        String consulta = "UPDATE SALA SET cod_sala = ?, turma = ?, local_sala = ?, qtd_alunos = ? where cod_sala = ?";
         return jdbc.update(consulta, sala.getCod_sala(), sala.getTurma(), sala.getLocal_sala(), sala.getQtd_alunos());
     }
 

@@ -53,7 +53,7 @@ public class AdminAtualizaSalaController {
 	public String atualizarSala(@RequestParam(value = "cod_sala", required = true) String cod_sala, Sala sala, Model model) {
 		Integer result = repoS.atualizarSala(cod_sala, sala);
         if(result != null && result > 0){
-            model.addAttribute("sucessmensage", "Professor atualizado com sucesso!");
+            model.addAttribute("sucessmensage", "Sala atualizada com sucesso!");
         }
         model.addAttribute("cod_sala", new Sala());
 		return "mantersala";
