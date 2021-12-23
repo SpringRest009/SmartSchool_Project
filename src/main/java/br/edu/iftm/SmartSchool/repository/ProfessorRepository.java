@@ -24,12 +24,12 @@ public class ProfessorRepository {
                 return jdbc.query(consulta,
                                 (res, linha) -> new Professor(
                                                 new Usuario(res.getString("login"), res.getString("senha"),
-                                                                res.getInt("rg"),
+                                                                res.getString("rg"),
                                                                 res.getString("telefone"), res.getDate("data_nasc"),
                                                                 res.getString("email"),
                                                                 res.getString("nome"), res.getString("cpf"),
                                                                 res.getString("endereco")),
-                                                res.getInt("cod_professor")));
+                                                res.getString("cod_professor")));
         }
 
         public Integer gravarProfessor(Professor professor) {
@@ -38,6 +38,7 @@ public class ProfessorRepository {
                 String sqlProfessor = "insert into professor(cod_professor, usuario_login) values(?,?)";
                 jdbc.update(sqlUsuario, us.getLogin(), us.getSenha(), us.getRg(), us.getTelefone(), us.getDataNasc(),
                                 us.getEmail(), us.getNome(), us.getCpf(), us.getEndereco());
+                                
                 return jdbc.update(sqlProfessor, professor.getCod_professor(), professor.getUsuario().getLogin());
         }
 
@@ -50,7 +51,7 @@ public class ProfessorRepository {
 
         public Integer atualizarProfessor(String cpf, Professor professor) {
                 Usuario us = professor.getUsuario();
-                String sqlProfessor = "update professor set cod_professor = ?, where usuario_login = ?";
+                String sqlProfessor = "update professor set cod_professor = ? where usuario_login = ?";
                 String sqlUsuario = "update usuario set rg = ?, telefone = ?, data_nasc = ?, email = ?, nome = ?, cpf = ?, endereco = ? where login = ?";
                 jdbc.update(sqlProfessor, professor.getCod_professor(), professor.getUsuario().getLogin());
                 return jdbc.update(sqlUsuario, us.getRg(), us.getTelefone(), us.getDataNasc(), us.getEmail(),
@@ -59,15 +60,15 @@ public class ProfessorRepository {
 
         public Professor buscaPorLoginP(String login) {
                 return jdbc.queryForObject(
-                                "SELECT login FROM professor, usuario where usuario.login = professor.usuario_login and usuario.login = ? ;",
+                                "SELECT * FROM professor, usuario where usuario.login = professor.usuario_login and usuario.login = ? ;",
                                 (res, linha) -> new Professor(
                                                 new Usuario(res.getString("login"), res.getString("senha"),
-                                                                res.getInt("rg"),
+                                                                res.getString("rg"),
                                                                 res.getString("telefone"), res.getDate("data_nasc"),
                                                                 res.getString("email"),
                                                                 res.getString("nome"), res.getString("cpf"),
                                                                 res.getString("endereco")),
-                                                res.getInt("cod_professor")),
+                                                res.getString("cod_professor")),
                                 login);
         }
 
@@ -80,14 +81,14 @@ public class ProfessorRepository {
                                                 return new Professor(
                                                                 new Usuario(res.getString("login"),
                                                                                 res.getString("senha"),
-                                                                                res.getInt("rg"),
+                                                                                res.getString("rg"),
                                                                                 res.getString("telefone"),
                                                                                 res.getDate("data_nasc"),
                                                                                 res.getString("email"),
                                                                                 res.getString("nome"),
                                                                                 res.getString("cpf"),
                                                                                 res.getString("endereco")),
-                                                                res.getInt("cod_professor"));
+                                                                res.getString("cod_professor"));
                                         }, new Object[] { cpf });
                 } catch (Exception e) {
                         System.out.println(e.getLocalizedMessage());

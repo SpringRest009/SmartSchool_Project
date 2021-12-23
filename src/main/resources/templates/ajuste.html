@@ -1,234 +1,117 @@
 <!DOCTYPE html>
 <html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
-    <head>
-        <meta charset="UTF-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Smart School</title>
-        <link
-            href="../static/css/style.css"
-            th:href="@{/css/style.css}"
-            rel="stylesheet"
-        />
-        <link
-            href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
-            rel="stylesheet"
-            integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
-            crossorigin="anonymous"
-        />
-        <link
-            rel="stylesheet"
-            href="https://use.fontawesome.com/releases/v5.0.8/css/all.css"
-        />
-    </head>
-    <body>
-        <div th:replace="fragmentos/navLogin :: nav"></div>
 
-        <main class="container">
-            <h1 class="text-center text-white p-3">
-                Solicitação de Ajuste de Dados
-            </h1>
-            <form class="was-validated row">
-                <div class="col-sm-1 col-md-6 col-lg-6">
-                    <div>
-                        <label for="validationServer01" class="form-label"
-                            >Nome Completo</label
-                        >
-                        <input
-                            type="text"
-                            class="form-control is-valid"
-                            id="validationServer01"
-                            required
-                        />
-                    </div>
-                    <div>
-                        <label for="rg" class="form-label"
-                            >Data de Nascimento</label
-                        >
-                        <input
-                            type="date"
-                            class="form-control is-valid"
-                            id="rg"
-                            required
-                        />
-                    </div>
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Smart School</title>
+    <link href="../static/css/style.css" th:href="@{/css/style.css}" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css" />
+</head>
 
-                    <div>
-                        <label for="cpf" class="form-label"
-                            >Cadastro de Pessoa Física</label
-                        >
-                        <input
-                            type="number"
-                            class="form-control is-valid"
-                            id="cpf"
-                            required
-                        />
-                    </div>
+<body>
+    <div th:replace="fragmentos/navLogin :: nav"></div>
 
-                    <div>
-                        <label for="endereco" class="form-label"
-                            >Endereço</label
-                        >
-                        <input
-                            type="text"
-                            class="form-control is-valid"
-                            id="endereco"
-                            required
-                        />
-                    </div>
-
-                    <p class="text-center">Responsáveis</p>
-
-                    <div>
-                        <label for="mae" class="form-label"
-                            >Nome Completo da Mãe</label
-                        >
-                        <input
-                            type="text"
-                            class="form-control is-valid"
-                            id="mae"
-                            required
-                        />
-                    </div>
-
-                    <div>
-                        <label for="pai" class="form-label"
-                            >Nome Completo do Pai</label
-                        >
-                        <input
-                            type="text"
-                            class="form-control is-valid"
-                            id="mae"
-                            required
-                        />
-                    </div>
-
-                    <div>
-                        <label for="telMae" class="form-label"
-                            >Telefone Mãe</label
-                        >
-                        <input
-                            type="tel"
-                            class="form-control is-valid"
-                            id="telMae"
-                            required
-                        />
-                    </div>
-
-                    <div>
-                        <label for="telPai" class="form-label"
-                            >Telefone Pai</label
-                        >
-                        <input
-                            type="tel"
-                            class="form-control is-valid"
-                            id="telPai"
-                            required
-                        />
-                    </div>
+    <main class="container">
+        <h1 class="text-center text-white p-3">
+            Solicitação de Ajuste de Dados
+        </h1>
+        <form class="was-validated row">
+            <div class="col-sm-1 col-md-6 col-lg-6">
+                <div>
+                    <label for="validationServer01" class="form-label">Nome Completo</label>
+                    <input type="text" class="form-control is-valid" id="validationServer01" required />
+                </div>
+                <div>
+                    <label for="rg" class="form-label">Data de Nascimento</label>
+                    <input type="date" class="form-control is-valid" id="rg" required />
                 </div>
 
-                <div class="col-sm-1 col-md-6 col-lg-6">
-                    <div>
-                        <label
-                            for="certidaoNascimento"
-                            class="form-label text-center"
-                            >Certidão de Nascimento</label
-                        >
-                        <input
-                            type="file"
-                            class="form-control"
-                            aria-label="file example"
-                            id="certidaoNascimento"
-                            required
-                        />
-                    </div>
-
-                    <div>
-                        <label
-                            for="registroGeral"
-                            class="form-label text-center"
-                            >Registro Geral (frente e verso)</label
-                        >
-                        <input
-                            type="file"
-                            class="form-control"
-                            aria-label="file example"
-                            id="registroGeral"
-                            required
-                        />
-                    </div>
-
-                    <div>
-                        <label for="cadastroPF" class="form-label text-center"
-                            >Cadastro de Pessoa Física (frente e verso)</label
-                        >
-                        <input
-                            type="file"
-                            class="form-control"
-                            aria-label="file example"
-                            id="cadastroPF"
-                            required
-                        />
-                    </div>
-
-                    <div>
-                        <label
-                            for="comprovanteEndereco"
-                            class="form-label text-center"
-                            >Comprovante de Endereço</label
-                        >
-                        <input
-                            type="file"
-                            class="form-control"
-                            aria-label="file example"
-                            id="comprovanteEndereco"
-                            required
-                        />
-                    </div>
-
-                    <p class="text-center">Responsáveis</p>
-
-                    <div>
-                        <label for="rgMae" class="form-label text-center"
-                            >Registro Geral da Mãe (frente e verso)</label
-                        >
-                        <input
-                            type="file"
-                            class="form-control"
-                            aria-label="file example"
-                            id="rgMae"
-                            required
-                        />
-                    </div>
-
-                    <div>
-                        <label for="rgPai" class="form-label text-center"
-                            >Registro Geral da Pai (frente e verso)</label
-                        >
-                        <input
-                            type="file"
-                            class="form-control"
-                            aria-label="file example"
-                            id="rgPai"
-                            required
-                        />
-                    </div>
+                <div>
+                    <label for="cpf" class="form-label">Cadastro de Pessoa Física</label>
+                    <input type="number" class="form-control is-valid" id="cpf" required />
                 </div>
-                <div class="d-grid gap-2 col-6 mx-auto mb-5 mt-5">
-                    <button class="btn btn-primary" type="button">
-                        Enviar Arquivos Para Ajuste
-                    </button>
+
+                <div>
+                    <label for="endereco" class="form-label">Endereço</label>
+                    <input type="text" class="form-control is-valid" id="endereco" required />
                 </div>
-            </form>
-        </main>
 
-        <div th:replace="fragmentos/footer :: footer"></div>
+                <p class="text-center">Responsáveis</p>
 
-        <script
-            src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
-            crossorigin="anonymous"
-        ></script>
-    </body>
+                <div>
+                    <label for="mae" class="form-label">Nome Completo da Mãe</label>
+                    <input type="text" class="form-control is-valid" id="mae" required />
+                </div>
+
+                <div>
+                    <label for="pai" class="form-label">Nome Completo do Pai</label>
+                    <input type="text" class="form-control is-valid" id="mae" required />
+                </div>
+
+                <div>
+                    <label for="telMae" class="form-label">Telefone Mãe</label>
+                    <input type="tel" class="form-control is-valid" id="telMae" required />
+                </div>
+
+                <div>
+                    <label for="telPai" class="form-label">Telefone Pai</label>
+                    <input type="tel" class="form-control is-valid" id="telPai" required />
+                </div>
+            </div>
+
+            <div class="col-sm-1 col-md-6 col-lg-6">
+                <div>
+                    <label for="certidaoNascimento" class="form-label text-center">Certidão de Nascimento</label>
+                    <input type="file" class="form-control" aria-label="file example" id="certidaoNascimento"
+                        required />
+                </div>
+
+                <div>
+                    <label for="registroGeral" class="form-label text-center">Registro Geral (frente e verso)</label>
+                    <input type="file" class="form-control" aria-label="file example" id="registroGeral" required />
+                </div>
+
+                <div>
+                    <label for="cadastroPF" class="form-label text-center">Cadastro de Pessoa Física (frente e
+                        verso)</label>
+                    <input type="file" class="form-control" aria-label="file example" id="cadastroPF" required />
+                </div>
+
+                <div>
+                    <label for="comprovanteEndereco" class="form-label text-center">Comprovante de Endereço</label>
+                    <input type="file" class="form-control" aria-label="file example" id="comprovanteEndereco"
+                        required />
+                </div>
+
+                <p class="text-center">Responsáveis</p>
+
+                <div>
+                    <label for="rgMae" class="form-label text-center">Registro Geral da Mãe (frente e verso)</label>
+                    <input type="file" class="form-control" aria-label="file example" id="rgMae" required />
+                </div>
+
+                <div>
+                    <label for="rgPai" class="form-label text-center">Registro Geral da Pai (frente e verso)</label>
+                    <input type="file" class="form-control" aria-label="file example" id="rgPai" required />
+                </div>
+            </div>
+            <div class="d-grid gap-2 col-6 mx-auto mb-5 mt-5">
+                <button class="btn btn-primary" type="button">
+                    Enviar Arquivos Para Ajuste
+                </button>
+            </div>
+        </form>
+    </main>
+
+    <div th:replace="fragmentos/footer :: footer"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous">
+    </script>
+</body>
+
 </html>

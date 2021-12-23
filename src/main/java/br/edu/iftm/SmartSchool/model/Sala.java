@@ -1,7 +1,7 @@
 package br.edu.iftm.SmartSchool.model;
 
 public class Sala {
-    private Integer cod_sala;
+    private String cod_sala;
     private String turma;
     private String local_sala;
     private Integer qtd_alunos;
@@ -9,18 +9,18 @@ public class Sala {
     public Sala() {
     }
 
-    public Sala(Integer cod_sala, String turma, String local_sala, Integer qtd_alunos) {
+    public Sala(String cod_sala, String turma, String local_sala, Integer qtd_alunos) {
         this.cod_sala = cod_sala;
         this.turma = turma;
         this.local_sala = local_sala;
         this.qtd_alunos = qtd_alunos;
     }
 
-    public Integer getCod_sala() {
+    public String getCod_sala() {
         return this.cod_sala;
     }
 
-    public void setCod_sala(Integer cod_sala) {
+    public void setCod_sala(String cod_sala) {
         this.cod_sala = cod_sala;
     }
 

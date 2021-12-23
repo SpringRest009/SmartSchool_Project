@@ -13,7 +13,7 @@ public class Usuario implements java.io.Serializable {
 	@Size(max=10,message = "A palavra de login deve possuir no máximo 10 caracteres")
 	private String login;
 	private String senha;
-	private Integer rg;
+	private String rg;
 	@NotNull (message = "O telefone não pode ser vazio!")
 	private String telefone;
 	private Date dataNasc;
@@ -26,7 +26,7 @@ public class Usuario implements java.io.Serializable {
 	public Usuario() {
 	}
 
-	public Usuario(String login, String senha, Integer rg, String telefone, Date dataNasc, String email, String nome,
+	public Usuario(String login, String senha, String rg, String telefone, Date dataNasc, String email, String nome,
 			String cpf, String endereco) {
 		this.login = login;
 		this.senha = senha;
@@ -55,11 +55,11 @@ public class Usuario implements java.io.Serializable {
 		this.senha = senha;
 	}
 
-	public Integer getRg() {
+	public String getRg() {
 		return this.rg;
 	}
 
-	public void setRg(Integer rg) {
+	public void setRg(String rg) {
 		this.rg = rg;
 	}
 
