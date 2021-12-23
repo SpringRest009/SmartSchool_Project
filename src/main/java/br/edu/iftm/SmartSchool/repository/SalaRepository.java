@@ -44,6 +44,8 @@ public class SalaRepository {
         return jdbc.update(consulta, sala.getCod_sala(), sala.getTurma(), sala.getLocal_sala(), sala.getQtd_alunos());
     }
 
+    /*****************/
+
     public Sala buscaPorCodSala(String cod_sala) {
         return jdbc.queryForObject(
                 "SELECT * FROM SALA WHERE cod_sala = ?",
